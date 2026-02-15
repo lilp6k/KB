@@ -22,16 +22,24 @@
         /* Removed custom heart rain animation. Snowstorm.js will handle falling characters. */
 
         /* Responsive adjustments for mobile devices */
-        @media (max-width: 600px) {
-            /* Reduce card width for small screens */
-            .card {
-                width: 90% !important;
-            }
-            /* Decrease font size of the love note for readability */
-            .card-body p {
-                font-size: 0.9rem;
-            }
-        }
+@media (max-width: 600px) {
+  .card {
+    width: 94% !important;
+    max-height: 88vh;          /* keep the window inside the screen */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-body {
+    overflow-y: auto;          /* lets the note scroll */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .card-body p {
+    font-size: 0.95rem;
+    line-height: 1.25;
+  }
+}
     </style>
 </head>
 <body>
@@ -69,7 +77,7 @@
         snowStorm.animationInterval = 40;
         snowStorm.flakesMax = 80;
         snowStorm.flakesMaxActive = 48;
-        snowStorm.zIndex = 1;
+          snowStorm.zIndex = 9999;
         
 
         if (window.innerWidth < 600) {
